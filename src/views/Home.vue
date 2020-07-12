@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-comtainer">
+    Home
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { Tabbar, TabbarItem } from 'vant';
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  data() {
+    return {
+
+    };
   }
-}
+};
 </script>
+
+<style lang='scss' scoped>
+@import "@/assets/css/common.scss";
+.home-comtainer {
+  color: $mainColor;
+}
+</style>

@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+
+import '@/assets/css/normalize.css' //初始化浏览器默认样式
+import FastClick from 'fastclick'//fastclick使用
+FastClick.attach(document.body);
+
 Vue.config.productionTip = false
 
 new Vue({
