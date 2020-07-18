@@ -1,20 +1,23 @@
 <template>
-  <div id="app">
-    <DrHeader>
+  <div
+    id="app"
+    :class="[{'headerPadding':$route.meta.showHeader},{'footerPadding':$route.meta.showFooter}]"
+  >
+    <DrHeader v-show="$route.meta.showHeader">
       <template #left>
         <div class="drHeaderSlotLeft" @click="goBack"><</div>
       </template>
       <template #default>
-        <div class="drHeaderSlotDefault">首页</div>
+        <div class="drHeaderSlotDefault">{{$route.meta.curTitle}}</div>
       </template>
       <template #right>
-        <div class="drHeaderSlotRight">注册</div>
+        <div class="drHeaderSlotRight">登陆</div>
       </template>
     </DrHeader>
     <transition name="routerTra" mode="out-in">
       <router-view />
     </transition>
-    <DrTabbar :tabList="tabList"></DrTabbar>
+    <DrTabbar :tabList="tabList" v-show="$route.meta.showFooter"></DrTabbar>
   </div>
 </template>
 <script>
@@ -45,9 +48,18 @@ export default {
 <style lang="scss">
 #app {
   width: 100%;
-  height: 100%;
-  padding: 42px 0 50px 0;
-  overflow: hidden;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  &.headerPadding {
+    padding-top: 42px;
+  }
+  &.footerPadding {
+    padding-bottom: 50px;
+  }
+  .drHeaderSlotLeft {
+    font-size: 20px;
+  }
   .routerTra-enter-active {
     transition: all 0.3s ease;
   }
@@ -58,9 +70,6 @@ export default {
   .routerTra-leave-to {
     transform: translateX(-20px);
     opacity: 0;
-  }
-  .drHeaderSlotLeft {
-    font-size: 20px;
   }
 }
 </style>

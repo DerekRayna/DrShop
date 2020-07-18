@@ -29,7 +29,7 @@ export default {
 
   },
   created() {
-      console.log(this.$slots)
+    //   console.log(this.$slots)
   },
   mounted() {
 
