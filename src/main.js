@@ -9,7 +9,7 @@ import FastClick from 'fastclick'//fastclick使用
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
-
+//111111
 new Vue({
   router,
   store,
